@@ -1,2 +1,2 @@
 # cvbuilder
-An application to build custom CVs, build using React with Vite.
+An application allows using to build custom CVs, built using React with Vite.
