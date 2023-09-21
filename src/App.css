@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  text-align: center;
+  min-height: 100vh;
+}
+
+h2 {
+  margin-top: 30px;
+}
+
+.mainCont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  flex-grow: 1;
+}
+
+.infoSide {
+  background-color: lightgray;
+}
+
+.sectionCont {
+  margin-bottom: 40px;
+}
+
+.card {
+  background-color: lightgray;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  align-items: baseline;
+}
+
+.inputPair {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.inputFor {
+  font-weight: 600;
+}
+
+.inputBox {
+  width: 20em;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (min-width: 800px) {
+  .mainCont {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formButton {
+  border: none;
+  color: white;
+  padding: 11px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #6d777a;
+}
+
+.saveButton {
+  background-color: #0095cf;
+}
+
+.cvSide {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+}
+
+.cvBox {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px;
+  width: 60%;
+  box-shadow: 0px 0px 5px 0px #ccc;
+}
+
+.cvPreview {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cvPreview h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cvPreview p {
+  margin-bottom: 10px;
+}
+
+.cvPreview ul {
+  list-style-type: square;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.cvPreview li {
+  margin-bottom: 5px;
+}
+
+.cvPreview a {
+  color: #04aa6d;
+  text-decoration: none;
+  font-weight: bold;
+}
