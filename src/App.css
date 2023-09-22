@@ -8,9 +8,15 @@ body {
 }
 
 h2 {
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
+.headerCont {
+  background-color: #04aa6d;
+  padding: 1px;
+  color: white;
+  border-bottom: aliceblue 5px solid;
+}
 .mainCont {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -19,15 +25,19 @@ h2 {
 }
 
 .infoSide {
-  background-color: lightgray;
+  background-color: white;
 }
 
 .sectionCont {
   margin-bottom: 40px;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: lightblue;
+  border-radius: 8px;
+  padding: 1em;
 }
 
 .card {
-  background-color: lightgray;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   align-items: baseline;
@@ -91,9 +101,10 @@ input::-webkit-inner-spin-button {
 .cvBox {
   background-color: #fff;
   border: 1px solid #ccc;
+  border-radius: 8px;
   padding: 20px;
-  margin: 10px;
-  width: 60%;
+  margin: 1em;
+  width: 100%;
   box-shadow: 0px 0px 5px 0px #ccc;
 }
 
@@ -126,4 +137,52 @@ input::-webkit-inner-spin-button {
   color: #04aa6d;
   text-decoration: none;
   font-weight: bold;
+}
+
+.headerCont {
+  background-color: lightblue;
+  margin-bottom: 1em;
+}
+
+.headerText {
+  top: 100px;
+  text-align: center;
+  color: black;
+}
+
+.headerSub {
+  position: relative;
+  bottom: 20px;
+}
+
+.cvProfile {
+  background-color: #e6bbad;
+  border-radius: 5px 5px 0 0; /* top-left, top-right, bottom-right, bottom-left */
+  color: white;
+  padding: 1em;
+  margin-top: -20px; /* Adjust as needed */
+  margin-left: -20px; /* Adjust as needed */
+  margin-right: -20px; /* Adjust as needed */
+}
+
+.iconTextCont {
+  display: flex;
+  gap: 5px;
+}
+
+.profileDetails {
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+.cvName {
+  font-size: x-large;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.profileIcon {
+  height: 20px;
+  fill: white;
 }

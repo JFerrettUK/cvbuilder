@@ -1,9 +1,17 @@
 import { useState } from "react";
-import trashOutline from "/trash-outline.svg";
+import idCard from "/idCard.svg";
+import person from "/person.svg";
+import school from "/school.svg";
+import trash from "/trash.svg";
+import nav from "/nav.svg";
+import call from "/call.svg";
+import briefcase from "/briefcase.svg";
+import plus from "/plus.svg";
+import mail from "/mail.svg";
 import ProfileInputs from "./ProfileInputs";
 import EducationInputs from "./EducationInputs";
 import ExperienceInputs from "./ExperienceInputs";
-
+import CVLayout from "./CVLayout.jsx";
 import "./App.css";
 
 function App() {
@@ -11,7 +19,14 @@ function App() {
 
   return (
     <>
-      <h1>CV Application</h1>
+      <div className="headerCont">
+        <header className="headerText">
+          <h1>CV Builder</h1>
+          <div className="headerSub">
+            Build a professional resume in minutes
+          </div>
+        </header>
+      </div>
       <div className="mainCont">
         <div className="infoSide">
           <div className="profileCont sectionCont">
@@ -32,12 +47,7 @@ function App() {
           </div>
         </div>
         <div className="cvSide">
-          <div className="cvBox">
-            <h2>Preview</h2>
-            <div>
-              <p>Working CV goes here</p>
-            </div>
-          </div>
+          <CVLayout />
         </div>
       </div>
     </>
