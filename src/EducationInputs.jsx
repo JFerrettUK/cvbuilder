@@ -42,7 +42,7 @@ function EducationInputs() {
           Edit
         </button>
         <button type="submit" className="saveButton educationSave formButton">
-          Save
+          Add
         </button>
       </div>
     </>

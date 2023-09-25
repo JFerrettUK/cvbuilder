@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import trash from "/trash.svg";
 
 function ExperienceInputs() {
   const [count, setCount] = useState(0);
@@ -6,6 +7,10 @@ function ExperienceInputs() {
   return (
     <>
       <div className="card experienceCard">
+        <div className="experienceTab">
+          <div>Springfield Nuclear Power Plant</div>
+          <img className="trashIcon" src={trash} alt="delete" />
+        </div>
         <div className="inputPair inputCompanyName">
           <label className="inputFor" htmlFor="companyName">
             Company Name
@@ -53,7 +58,7 @@ function ExperienceInputs() {
           Edit
         </button>
         <button type="submit" className="saveButton experienceSave formButton">
-          Save
+          Add
         </button>
       </div>
     </>
