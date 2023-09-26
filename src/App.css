@@ -18,12 +18,12 @@ h2 {
   border-bottom: aliceblue 5px solid;
 }
 .mainCont {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  flex-grow: 1;
+  display: flex; /* Change from grid to flex */
+  flex-direction: row; /* Optional: Row is the default, so you can omit this line */
+  justify-content: space-between; /* Optional: Align columns to the sides */
+  align-items: stretch; /* Stretch children vertically */
+  min-height: 100vh; /* Ensure at least 100% viewport height */
 }
-
 .infoSide {
   background-color: white;
 }
@@ -91,12 +91,12 @@ input::-webkit-inner-spin-button {
 .saveButton {
   background-color: #0095cf;
 }
-
 .cvSide {
   background-color: lightblue;
-  display: flex;
+  display: flex; /* Make it a flex container */
   border-radius: 8px;
   justify-content: center;
+  flex-grow: 1; /* Allow it to grow and fill the available space */
 }
 
 .cvBox {
@@ -185,6 +185,7 @@ input::-webkit-inner-spin-button {
   display: grid;
   grid-template-columns: 1fr 2fr;
   justify-content: left;
+  margin-bottom: 1.5em;
 }
 
 .profDescription,
@@ -213,7 +214,8 @@ input::-webkit-inner-spin-button {
   font-weight: 800;
 }
 
-.experienceTab {
+.experienceTab,
+.educationTab {
   font-weight: 800;
   display: grid;
   grid-template-columns: 1fr 25px;
@@ -227,4 +229,21 @@ input::-webkit-inner-spin-button {
 
 .trashIcon {
   height: 25px;
+}
+
+.downIcon {
+  height: 25px;
+}
+
+.eduHeader {
+  background-color: white;
+  border-radius: 5px;
+  height: 3em;
+  width: fit-content;
+  padding-left: 2em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

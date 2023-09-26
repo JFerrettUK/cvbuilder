@@ -7,6 +7,9 @@ import call from "/call.svg";
 import briefcase from "/briefcase.svg";
 import plus from "/plus.svg";
 import mail from "/mail.svg";
+import EducationInfo from "./EducationInfo";
+import ExperienceInfo from "./ExperienceInfo";
+import down from "/down.svg";
 
 function CVLayout() {
   return (
@@ -30,36 +33,28 @@ function CVLayout() {
           </div>
         </div>
         <div className="cvSubHeader">Education</div>
-        <div className="eduDetails">
-          <div className="eduLeft">
-            <div className="eduDate">1988-1992</div>
-            <div className="eduLocation">Springfield University</div>
-          </div>
-          <div className="eduRight">
-            <div className="eduSchool">Springfield University</div>
-            <div className="eduDegree">Nuclear Physics</div>
-            <div className="eduDescription">
-              Developed a unique approach to safety involving excessive a bunch
-              of signs and elaborate escape plans.{" "}
-            </div>
-          </div>
-        </div>
+        <EducationInfo
+          eduDate="1988-1992"
+          eduLocation="Springfield, USA"
+          eduSchool="Springfield University"
+          eduDegree="Nuclear Physics"
+          eduDescription="Developed a unique approach to safety involving a bunch of signs and elaborate escape plans."
+        />
         <div className="cvSubHeader">Professional Experience</div>
-        <div className="profDetails">
-          <div className="profLeft">
-            <div className="profDate">04/1992</div>
-            <div className="profLocation">Springfield, USA</div>
-          </div>
-          <div className="profRight">
-            <div className="profCompany">Springfield Nuclear Power Plant</div>
-            <div className="profTitle">Safety Stuff Doer</div>
-            <div className="profDescription">
-              I worked at the Springfield Nuclear Power Plant, where I, um, made
-              sure stuff didn't go kablooey. You know, nuclear doodads and all
-              that jazz. And, I tried to keep things from blowing up and stuff.
-            </div>
-          </div>
-        </div>
+        <ExperienceInfo
+          profDate="04/1992 - Present"
+          profLocation="Springfield, USA"
+          profCompany="Springfield Nuclear Power Plant"
+          profTitle="Safety Inspector Person"
+          profDescription="I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff."
+        />
+        <ExperienceInfo
+          profDate="02/1994 - 02/1994"
+          profLocation="NASA"
+          profCompany="National Aeronautics and Space Administration"
+          profTitle="Astronaut"
+          profDescription="I briefly worked as an astronaut at NASA for a special mission to save the plant from a giant asteroid. I ate snacks in space, pressed the wrong button, and accidentally caused an international incident. Fortunately, everything turned out fine thanks to teamwork and the power of television."
+        />
       </div>
     </>
   );

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import EducationTab from "./EducationTab";
 
 function EducationInputs() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
+      <EducationTab
+        key={"Springfield University"}
+        schoolName={"Springfield University"}
+      />{" "}
       <div className="card educationCard">
         <div className="inputPair inputSchool">
           <label className="inputFor" htmlFor="school">

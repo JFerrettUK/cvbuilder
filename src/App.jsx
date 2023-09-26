@@ -13,6 +13,7 @@ import EducationInputs from "./EducationInputs";
 import ExperienceInputs from "./ExperienceInputs";
 import CVLayout from "./CVLayout.jsx";
 import "./App.css";
+import down from "/down.svg";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,7 +37,11 @@ function App() {
             </div>
           </div>
           <div className="educationCont sectionCont">
-            <h2>Education</h2>
+            <div className="eduHeader">
+              <h2>
+                Education <img className="downIcon" src={down} alt="dropdown" />
+              </h2>
+            </div>
             <div className="holdInputs">
               <EducationInputs />
             </div>

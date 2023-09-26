@@ -1,16 +1,13 @@
-import React, { useState } from "react";
-import trash from "/trash.svg";
+import ExperienceTab from "./ExperienceTab";
 
 function ExperienceInputs() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       <div className="card experienceCard">
-        <div className="experienceTab">
-          <div>Springfield Nuclear Power Plant</div>
-          <img className="trashIcon" src={trash} alt="delete" />
-        </div>
+        <ExperienceTab
+          key={"Springfield Nuclear Power Plant"}
+          companyName={"Springfield Nuclear Power Plant"}
+        />
         <div className="inputPair inputCompanyName">
           <label className="inputFor" htmlFor="companyName">
             Company Name
