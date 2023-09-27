@@ -3,11 +3,12 @@ import ExperienceTab from "./ExperienceTab";
 function ExperienceInputs() {
   return (
     <>
+      <ExperienceTab
+        key={"Springfield Nuclear Power Plant"}
+        companyName={"Springfield Nuclear Power Plant"}
+      />
+
       <div className="card experienceCard">
-        <ExperienceTab
-          key={"Springfield Nuclear Power Plant"}
-          companyName={"Springfield Nuclear Power Plant"}
-        />
         <div className="inputPair inputCompanyName">
           <label className="inputFor" htmlFor="companyName">
             Company Name

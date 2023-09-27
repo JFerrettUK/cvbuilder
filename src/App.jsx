@@ -1,22 +1,16 @@
 import { useState } from "react";
-import idCard from "/idCard.svg";
-import person from "/person.svg";
-import school from "/school.svg";
-import trash from "/trash.svg";
-import nav from "/nav.svg";
-import call from "/call.svg";
-import briefcase from "/briefcase.svg";
-import plus from "/plus.svg";
-import mail from "/mail.svg";
 import ProfileInputs from "./ProfileInputs";
 import EducationInputs from "./EducationInputs";
 import ExperienceInputs from "./ExperienceInputs";
 import CVLayout from "./CVLayout.jsx";
 import "./App.css";
 import down from "/down.svg";
+import ToggleInput from "./ToggleInput.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
+  const eduInput = ToggleInput();
+  const expInput = ToggleInput();
 
   return (
     <>
@@ -31,24 +25,39 @@ function App() {
       <div className="mainCont">
         <div className="infoSide">
           <div className="profileCont sectionCont">
-            <h2>Profile Information</h2>
+            <div className="profileHeaderBg">
+              <div className="headerExpand">Profile Information </div>
+            </div>
             <div className="holdInputs">
               <ProfileInputs />
             </div>
           </div>
           <div className="educationCont sectionCont">
-            <div className="eduHeader">
-              <h2>
+            <div className="inputHeaderBg">
+              <div className="headerExpand" onClick={eduInput.toggle}>
                 Education <img className="downIcon" src={down} alt="dropdown" />
-              </h2>
+              </div>
             </div>
-            <div className="holdInputs">
+            <div
+              style={{ display: eduInput.isHidden ? "none" : "block" }}
+              className="holdInputs"
+            >
               <EducationInputs />
             </div>
           </div>
           <div className="experienceCont sectionCont">
-            <h2>Experience</h2>
-            <ExperienceInputs />
+            <div className="inputHeaderBg">
+              <div className="headerExpand" onClick={expInput.toggle}>
+                Experience{" "}
+                <img className="downIcon" src={down} alt="dropdown" />
+              </div>
+            </div>
+            <div
+              style={{ display: expInput.isHidden ? "none" : "block" }}
+              className="holdInputs"
+            >
+              <ExperienceInputs />
+            </div>
           </div>
         </div>
         <div className="cvSide">

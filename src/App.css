@@ -35,6 +35,7 @@ h2 {
   background-color: lightblue;
   border-radius: 8px;
   padding: 1em;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
 }
 
 .card {
@@ -222,6 +223,8 @@ input::-webkit-inner-spin-button {
   align-items: center;
   color: white;
   padding: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   border-radius: 5px;
   background-color: #6d777a;
   margin-bottom: 1em;
@@ -232,18 +235,18 @@ input::-webkit-inner-spin-button {
 }
 
 .downIcon {
-  height: 25px;
+  height: 29px;
 }
 
-.eduHeader {
-  background-color: white;
-  border-radius: 5px;
-  height: 3em;
-  width: fit-content;
-  padding-left: 2em;
-  padding-right: 2em;
-  margin-bottom: 1.5em;
+.headerExpand {
   display: flex;
-  justify-content: center;
   align-items: center;
+  font-size: x-large;
+  font-weight: 800;
+  margin: 0.5em;
+  justify-content: space-between;
+}
+
+.holdInputs {
+  margin-top: 15px;
 }
