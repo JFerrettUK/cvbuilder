@@ -1,11 +1,21 @@
+import { useState } from "react";
 import ExperienceTab from "./ExperienceTab";
 
 function ExperienceInputs() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [city, setCity] = useState("");
+  const [phone, setPhone] = useState("");
+
   return (
     <>
       <ExperienceTab
         key={"Springfield Nuclear Power Plant"}
         companyName={"Springfield Nuclear Power Plant"}
+      />
+      <ExperienceTab
+        key={"National Aeronautics and Space Administration"}
+        companyName={"NASA"}
       />
 
       <div className="card experienceCard">

@@ -1,34 +1,28 @@
-import idCard from "/idCard.svg";
-import person from "/person.svg";
-import school from "/school.svg";
-import trash from "/trash.svg";
+/* eslint-disable react/prop-types */
 import nav from "/nav.svg";
 import call from "/call.svg";
-import briefcase from "/briefcase.svg";
-import plus from "/plus.svg";
 import mail from "/mail.svg";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
-import down from "/down.svg";
 
-function CVLayout() {
+function CVLayout({ profileData }) {
   return (
     <>
       <div className="cvBox">
         <div className="cvProfile">
-          <div className="cvName">Homer Simpson</div>
+          <div className="cvName">{profileData.name}</div>
           <div className="profileDetails">
             <div className="iconTextCont">
               <img className="profileIcon" src={mail} alt="mail Icon" />
-              <div className="cvEmail">homersimpson@gmail.com</div>
+              <div className="cvEmail">{profileData.email}</div>
             </div>
             <div className="iconTextCont">
               <img className="profileIcon" src={call} alt="Call Icon" />
-              <div className="cvPhone">555-7334</div>
+              <div className="cvPhone">{profileData.phone}</div>
             </div>
             <div className="iconTextCont">
               <img className="profileIcon" src={nav} alt="Nav Icon" />
-              <div className="cvCity">Springfield, USA</div>
+              <div className="cvCity">{profileData.city}</div>
             </div>
           </div>
         </div>
@@ -51,7 +45,7 @@ function CVLayout() {
         <ExperienceInfo
           profDate="02/1994 - 02/1994"
           profLocation="NASA"
-          profCompany="National Aeronautics and Space Administration"
+          profCompany="NASA"
           profTitle="Astronaut"
           profDescription="I briefly worked as an astronaut at NASA for a special mission to save the plant from a giant asteroid. I ate snacks in space, pressed the wrong button, and accidentally caused an international incident. Fortunately, everything turned out fine thanks to teamwork and the power of television."
         />

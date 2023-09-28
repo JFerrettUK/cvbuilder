@@ -8,7 +8,12 @@ import down from "/down.svg";
 import ToggleInput from "./ToggleInput.jsx";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [profileData, setProfileData] = useState({
+    name: "Homer Simpson",
+    email: "homersimpson@gmail.com",
+    city: "Springfield, USA",
+    phone: "555-7334",
+  });
   const eduInput = ToggleInput();
   const expInput = ToggleInput();
 
@@ -29,7 +34,10 @@ function App() {
               <div className="headerExpand">Profile Information </div>
             </div>
             <div className="holdInputs">
-              <ProfileInputs />
+              <ProfileInputs
+                profileData={profileData}
+                setProfileData={setProfileData}
+              />
             </div>
           </div>
           <div className="educationCont sectionCont">
@@ -61,7 +69,7 @@ function App() {
           </div>
         </div>
         <div className="cvSide">
-          <CVLayout />
+          <CVLayout profileData={profileData} />
         </div>
       </div>
     </>

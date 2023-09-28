@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import trash from "/trash.svg";
 
 function ExperienceTab({ companyName }) {
