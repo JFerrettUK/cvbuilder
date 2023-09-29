@@ -14,6 +14,30 @@ function App() {
     city: "Springfield, USA",
     phone: "555-7334",
   });
+  const [experienceData, setExperienceData] = useState({
+    company: "Springfield Nuclear Power Plany",
+    title: "Safety Inspector Person",
+    start: "04/1992",
+    end: "Present",
+    location: "Springfield, USA",
+    description:
+      "I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff.",
+  });
+  const [educationData, setEducationData] = useState({
+    school: "Springfield University",
+    degree: "Your Degree Title",
+    start: "Your Start Date",
+    end: "Your End Date",
+    location: "Your Location",
+    description: "Your Description",
+  });
+  const [educationEntries, setEducationEntries] = useState([]);
+
+  const saveEducation = (educationData) => {
+    setEducationEntries([...educationEntries, educationData]);
+    console.log(educationEntries);
+  };
+
   const eduInput = ToggleInput();
   const expInput = ToggleInput();
 
@@ -50,7 +74,11 @@ function App() {
               style={{ display: eduInput.isHidden ? "none" : "block" }}
               className="holdInputs"
             >
-              <EducationInputs />
+              <EducationInputs
+                educationData={educationData}
+                setEducationData={setEducationData}
+                saveEducation={saveEducation}
+              />{" "}
             </div>
           </div>
           <div className="experienceCont sectionCont">
@@ -64,7 +92,10 @@ function App() {
               style={{ display: expInput.isHidden ? "none" : "block" }}
               className="holdInputs"
             >
-              <ExperienceInputs />
+              <ExperienceInputs
+                experienceData={experienceData}
+                setExperienceData={setExperienceData}
+              />
             </div>
           </div>
         </div>

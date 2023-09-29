@@ -7,6 +7,16 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #1e3c63;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
 h2 {
   margin-top: 0px;
 }
@@ -18,11 +28,11 @@ h2 {
   border-bottom: aliceblue 5px solid;
 }
 .mainCont {
-  display: flex; /* Change from grid to flex */
-  flex-direction: row; /* Optional: Row is the default, so you can omit this line */
-  justify-content: space-between; /* Optional: Align columns to the sides */
-  align-items: stretch; /* Stretch children vertically */
-  min-height: 100vh; /* Ensure at least 100% viewport height */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  min-height: 100vh;
 }
 .infoSide {
   background-color: white;
@@ -184,7 +194,7 @@ input::-webkit-inner-spin-button {
 .profDetails,
 .eduDetails {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 220px 2fr;
   justify-content: left;
   margin-bottom: 1.5em;
 }
@@ -249,4 +259,8 @@ input::-webkit-inner-spin-button {
 
 .holdInputs {
   margin-top: 15px;
+}
+
+textarea {
+  resize: vertical;
 }
