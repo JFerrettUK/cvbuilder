@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
 import ProfileInputs from "./ProfileInputs";
 import EducationInputs from "./EducationInputs";
 import ExperienceInputs from "./ExperienceInputs";
@@ -8,41 +9,79 @@ import down from "/down.svg";
 import ToggleInput from "./ToggleInput.jsx";
 
 function App() {
-  const [profileData, setProfileData] = useState({
+  // Default data for profile, experience, and education
+  const defaultProfileData = {
     name: "Homer Simpson",
     email: "homersimpson@gmail.com",
     city: "Springfield, USA",
     phone: "555-7334",
-  });
-  const [experienceData, setExperienceData] = useState({
-    company: "Springfield Nuclear Power Plany",
+  };
+
+  const defaultExperienceData = {
+    company: "Springfield Nuclear Power Plant",
     title: "Safety Inspector Person",
     start: "04/1992",
     end: "Present",
     location: "Springfield, USA",
     description:
       "I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff.",
-  });
-  const [educationData, setEducationData] = useState({
-    school: "Springfield University",
-    degree: "Your Degree Title",
-    start: "Your Start Date",
-    end: "Your End Date",
-    location: "Your Location",
-    description: "Your Description",
-  });
-  const [educationEntries, setEducationEntries] = useState([]);
+  };
 
+  const defaultExperienceData2 = {
+    company: "NASA",
+    title: "Astronaut",
+    start: "02/1994",
+    end: "03/1994",
+    location: "Springfield, USA",
+    description:
+      "I briefly worked as an astronaut at NASA for a special mission to save the plant from a giant asteroid. I ate snacks in space, pressed the wrong button, and accidentally caused an international incident. Fortunately, everything turned out fine thanks to teamwork and the power of television.",
+  };
+
+  const defaultEducationData = {
+    school: "Springfield University",
+    degree: "Nuclear Physics",
+    start: "1988",
+    end: "1992",
+    location: "Springfield, USA",
+    description:
+      "Developed a unique approach to safety involving a bunch of signs and elaborate escape plans.",
+  };
+
+  // State variables to manage profile, experience, and education data
+  const [profileData, setProfileData] = useState(defaultProfileData);
+  const [experienceData, setExperienceData] = useState(defaultExperienceData);
+  const [educationData, setEducationData] = useState(defaultEducationData);
+
+  // State variables to manage entries for experience and education
+  const [educationEntries, setEducationEntries] = useState([]);
+  const [experienceEntries, setExperienceEntries] = useState([]);
+
+  // ToggleInput state for showing/hiding education and experience sections
+  const eduInput = ToggleInput();
+  const expInput = ToggleInput();
+
+  // useEffect to add default data to entries when the app first loads
+  useEffect(() => {
+    setEducationEntries([defaultEducationData]);
+    setExperienceEntries([defaultExperienceData, defaultExperienceData2]);
+  }, []);
+
+  // Function to save education data
   const saveEducation = (educationData) => {
     setEducationEntries([...educationEntries, educationData]);
     console.log(educationEntries);
   };
 
-  const eduInput = ToggleInput();
-  const expInput = ToggleInput();
+  // Function to save experience data
+  const saveExperience = (experienceData) => {
+    setExperienceEntries([...experienceEntries, experienceData]);
+    console.log(experienceEntries);
+  };
 
+  // JSX structure for the App component
   return (
     <>
+      {/* Header section */}
       <div className="headerCont">
         <header className="headerText">
           <h1>CV Builder</h1>
@@ -51,8 +90,11 @@ function App() {
           </div>
         </header>
       </div>
+      {/* Main content section */}
       <div className="mainCont">
+        {/* Information side containing profile, education, and experience sections */}
         <div className="infoSide">
+          {/* Profile section */}
           <div className="profileCont sectionCont">
             <div className="profileHeaderBg">
               <div className="headerExpand">Profile Information </div>
@@ -64,6 +106,7 @@ function App() {
               />
             </div>
           </div>
+          {/* Education section */}
           <div className="educationCont sectionCont">
             <div className="inputHeaderBg">
               <div className="headerExpand" onClick={eduInput.toggle}>
@@ -78,9 +121,10 @@ function App() {
                 educationData={educationData}
                 setEducationData={setEducationData}
                 saveEducation={saveEducation}
-              />{" "}
+              />
             </div>
           </div>
+          {/* Experience section */}
           <div className="experienceCont sectionCont">
             <div className="inputHeaderBg">
               <div className="headerExpand" onClick={expInput.toggle}>
@@ -95,10 +139,12 @@ function App() {
               <ExperienceInputs
                 experienceData={experienceData}
                 setExperienceData={setExperienceData}
+                saveExperience={saveExperience}
               />
             </div>
           </div>
         </div>
+        {/* CV side containing the layout */}
         <div className="cvSide">
           <CVLayout profileData={profileData} />
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import trash from "/trash.svg";
 
 function EducationTab({ schoolName }) {

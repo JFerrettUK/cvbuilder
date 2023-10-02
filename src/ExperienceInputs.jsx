@@ -2,13 +2,38 @@
 import { useState } from "react";
 import ExperienceTab from "./ExperienceTab";
 
-function ExperienceInputs({ experienceData, setExperienceData }) {
+function ExperienceInputs({
+  experienceData,
+  setExperienceData,
+  saveExperience,
+}) {
   const [company, setCompany] = useState("");
   const [title, setTitle] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+
+  const resetInputValues = () => {
+    setCompany("");
+    setTitle("");
+    setStart("");
+    setEnd("");
+    setLocation("");
+    setDescription("");
+  };
+
+  const validateAndSave = () => {
+    // Check if any field is empty
+    if (!company || !title || !start || !end || !location || !description) {
+      alert("Please fill in all experience fields.");
+      return;
+    }
+
+    // If all fields are filled, save the education data
+    saveExperience(experienceData);
+    resetInputValues();
+  };
 
   return (
     <>
@@ -95,13 +120,13 @@ function ExperienceInputs({ experienceData, setExperienceData }) {
           />
         </div>
         <div className="inputPair inputLocation">
-          <label className="inputFor" htmlFor="location">
+          <label className="inputFor" htmlFor="expLocation">
             Location
           </label>
           <input
             className="inputBox"
             type="text"
-            id="location"
+            id="expLocation"
             value={location}
             onChange={(e) => {
               setLocation(e.target.value);
@@ -113,12 +138,12 @@ function ExperienceInputs({ experienceData, setExperienceData }) {
           />
         </div>
         <div className="inputPair inputDescription">
-          <label className="inputFor" htmlFor="description">
+          <label className="inputFor" htmlFor="expDescription">
             Description
           </label>
           <textarea
             className="inputBox"
-            id="description"
+            id="expDescription"
             rows="5"
             maxLength="200"
             value={description}
@@ -136,7 +161,13 @@ function ExperienceInputs({ experienceData, setExperienceData }) {
         <button type="submit" className="editButton experienceEdit formButton">
           Edit
         </button>
-        <button type="submit" className="saveButton experienceSave formButton">
+        <button
+          type="submit"
+          className="saveButton experienceSave formButton"
+          onClick={() => {
+            validateAndSave();
+          }}
+        >
           Add
         </button>
       </div>

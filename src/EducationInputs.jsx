@@ -10,6 +10,27 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
 
+  const resetInputValues = () => {
+    setSchool("");
+    setDegree("");
+    setStart("");
+    setEnd("");
+    setLocation("");
+    setDescription("");
+  };
+
+  const validateAndSave = () => {
+    // Check if any field is empty
+    if (!school || !degree || !start || !end || !location || !description) {
+      alert("Please fill in all education fields.");
+      return;
+    }
+
+    // If all fields are filled, save the education data
+    saveEducation(educationData);
+    resetInputValues();
+  };
+
   return (
     <>
       <EducationTab
@@ -90,13 +111,13 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
           />
         </div>
         <div className="inputPair inputLocation">
-          <label className="inputFor" htmlFor="location">
+          <label className="inputFor" htmlFor="eduLocation">
             Location
           </label>
           <input
             className="inputBox"
             type="text"
-            id="location"
+            id="eduLocation"
             value={location}
             onChange={(e) => {
               setLocation(e.target.value);
@@ -107,14 +128,14 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
             }}
           />
         </div>
-        <div className="inputPair inputLocation">
-          <label className="inputFor" htmlFor="description">
+        <div className="inputPair inputDescription">
+          <label className="inputFor" htmlFor="eduDescription">
             Description
           </label>
           <textarea
             className="inputBox"
             type="text"
-            id="description"
+            id="eduDescription"
             value={description}
             onChange={(e) => {
               setDescription(e.target.value);
@@ -133,10 +154,7 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
         <button
           type="submit"
           className="saveButton educationSave formButton"
-          onClick={() => {
-            saveEducation(educationData);
-            console.log(educationData);
-          }}
+          onClick={validateAndSave}
         >
           Save
         </button>
