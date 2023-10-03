@@ -25,6 +25,7 @@ function App() {
     location: "Springfield, USA",
     description:
       "I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff.",
+    id: "Springfield Nuclear Power Plant0",
   };
 
   const defaultExperienceData2 = {
@@ -35,6 +36,7 @@ function App() {
     location: "Springfield, USA",
     description:
       "I briefly worked as an astronaut at NASA for a special mission to save the plant from a giant asteroid. I ate snacks in space, pressed the wrong button, and accidentally caused an international incident. Fortunately, everything turned out fine thanks to teamwork and the power of television.",
+    id: "NASA1",
   };
 
   const defaultEducationData = {
@@ -45,6 +47,7 @@ function App() {
     location: "Springfield, USA",
     description:
       "Developed a unique approach to safety involving a bunch of signs and elaborate escape plans.",
+    id: "Springfield University0",
   };
 
   // State variables to manage profile, experience, and education data
@@ -68,14 +71,19 @@ function App() {
 
   // Function to save education data
   const saveEducation = (educationData) => {
-    setEducationEntries([...educationEntries, educationData]);
-    console.log(educationEntries);
+    setEducationEntries((prevEntries) => {
+      const newEntries = [...prevEntries, educationData];
+      console.log("New education entry added:", educationData);
+      return newEntries;
+    });
   };
-
   // Function to save experience data
   const saveExperience = (experienceData) => {
-    setExperienceEntries([...experienceEntries, experienceData]);
-    console.log(experienceEntries);
+    setExperienceEntries((prevEntries) => {
+      const newEntries = [...prevEntries, experienceData];
+      console.log("New experience entry added:", newEntries);
+      return newEntries;
+    });
   };
 
   // JSX structure for the App component
@@ -121,6 +129,7 @@ function App() {
                 educationData={educationData}
                 setEducationData={setEducationData}
                 saveEducation={saveEducation}
+                educationEntries={educationEntries}
               />
             </div>
           </div>
@@ -140,6 +149,7 @@ function App() {
                 experienceData={experienceData}
                 setExperienceData={setExperienceData}
                 saveExperience={saveExperience}
+                experienceEntries={experienceEntries}
               />
             </div>
           </div>

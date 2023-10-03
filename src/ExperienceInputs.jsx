@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ExperienceTab from "./ExperienceTab";
 
 function ExperienceInputs({
   experienceData,
   setExperienceData,
   saveExperience,
+  experienceEntries,
 }) {
   const [company, setCompany] = useState("");
   const [title, setTitle] = useState("");
@@ -13,6 +14,8 @@ function ExperienceInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [id, setId] = useState("");
+  const [countNo, setCountNo] = useState(2);
 
   const resetInputValues = () => {
     setCompany("");
@@ -30,22 +33,25 @@ function ExperienceInputs({
       return;
     }
 
-    // If all fields are filled, save the education data
+    counter();
     saveExperience(experienceData);
     resetInputValues();
   };
 
+  const counter = () => {
+    setCountNo(countNo + 1);
+    console.log(countNo);
+  };
+
+  useEffect(() => {
+    console.log(id);
+  }, [id]); // This effect will run whenever the id changes
+
   return (
     <>
-      <ExperienceTab
-        key={"Springfield Nuclear Power Plant"}
-        companyName={"Springfield Nuclear Power Plant"}
-      />
-      <ExperienceTab
-        key={"National Aeronautics and Space Administration"}
-        companyName={"National Aeronautics and Space Administration"}
-      />
-
+      {experienceEntries.map((entry, index) => (
+        <ExperienceTab key={index} companyName={entry.company} />
+      ))}
       <div className="card experienceCard">
         <div className="inputPair inputCompanyName">
           <label className="inputFor" htmlFor="companyName">
@@ -58,9 +64,11 @@ function ExperienceInputs({
             value={company}
             onChange={(e) => {
               setCompany(e.target.value);
+              setId(e.target.value + countNo);
               setExperienceData({
                 ...experienceData,
                 company: e.target.value,
+                id: e.target.value + countNo,
               });
             }}
           />

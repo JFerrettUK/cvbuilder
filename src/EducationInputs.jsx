@@ -1,14 +1,22 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 import EducationTab from "./EducationTab";
 
-function EducationInputs({ educationData, setEducationData, saveEducation }) {
+function EducationInputs({
+  educationData,
+  setEducationData,
+  saveEducation,
+  educationEntries,
+}) {
   const [school, setSchool] = useState("");
   const [degree, setDegree] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [id, setId] = useState("");
+  const [countNo, setCountNo] = useState(1);
 
   const resetInputValues = () => {
     setSchool("");
@@ -20,23 +28,29 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
   };
 
   const validateAndSave = () => {
-    // Check if any field is empty
     if (!school || !degree || !start || !end || !location || !description) {
       alert("Please fill in all education fields.");
       return;
     }
-
-    // If all fields are filled, save the education data
+    counter();
     saveEducation(educationData);
     resetInputValues();
   };
 
+  const counter = () => {
+    setCountNo(countNo + 1);
+    console.log(countNo);
+  };
+
+  useEffect(() => {
+    console.log(id);
+  }, [id]); // This effect will run whenever the id changes
+
   return (
     <>
-      <EducationTab
-        key={"Springfield University"}
-        schoolName={"Springfield University"}
-      />{" "}
+      {educationEntries.map((entry, index) => (
+        <EducationTab key={index} schoolName={entry.school} />
+      ))}
       <div className="card educationCard">
         <div className="inputPair inputSchool">
           <label className="inputFor" htmlFor="school">
@@ -49,9 +63,11 @@ function EducationInputs({ educationData, setEducationData, saveEducation }) {
             value={school}
             onChange={(e) => {
               setSchool(e.target.value);
+              setId(e.target.value + countNo);
               setEducationData({
                 ...educationData,
                 school: e.target.value,
+                id: e.target.value + countNo,
               });
             }}
           />
