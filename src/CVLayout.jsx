@@ -4,8 +4,17 @@ import call from "/call.svg";
 import mail from "/mail.svg";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
+import { useEffect } from "react";
 
-function CVLayout({ profileData }) {
+function CVLayout({ profileData, educationEntries, experienceEntries }) {
+  useEffect(() => {
+    console.log("CV Layout Updated experience entries:", experienceEntries);
+  }, [experienceEntries]);
+
+  useEffect(() => {
+    console.log("CV Layout Updated education entries:", educationEntries);
+  }, [educationEntries]);
+
   return (
     <>
       <div className="cvBox">
@@ -27,28 +36,30 @@ function CVLayout({ profileData }) {
           </div>
         </div>
         <div className="cvSubHeader">Education</div>
-        <EducationInfo
-          eduDate="1988-1992"
-          eduLocation="Springfield, USA"
-          eduSchool="Springfield University"
-          eduDegree="Nuclear Physics"
-          eduDescription="Developed a unique approach to safety involving a bunch of signs and elaborate escape plans."
-        />
+        {educationEntries.map((education, index) => (
+          <EducationInfo
+            key={index}
+            eduDate={`${education.start} - ${education.end}`}
+            eduLocation={education.location}
+            eduSchool={education.school}
+            eduDegree={education.degree}
+            eduDescription={education.description}
+            eduId={education.id}
+          />
+        ))}
+
         <div className="cvSubHeader">Professional Experience</div>
-        <ExperienceInfo
-          profDate="04/1992 - Present"
-          profLocation="Springfield, USA"
-          profCompany="Springfield Nuclear Power Plant"
-          profTitle="Safety Inspector Person"
-          profDescription="I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff."
-        />
-        <ExperienceInfo
-          profDate="02/1994 - 02/1994"
-          profLocation="NASA"
-          profCompany="NASA"
-          profTitle="Astronaut"
-          profDescription="I briefly worked as an astronaut at NASA for a special mission to save the plant from a giant asteroid. I ate snacks in space, pressed the wrong button, and accidentally caused an international incident. Fortunately, everything turned out fine thanks to teamwork and the power of television."
-        />
+        {experienceEntries.map((experience, index) => (
+          <ExperienceInfo
+            key={index}
+            profDate={`${experience.start} - ${experience.end}`}
+            profLocation={experience.location}
+            profCompany={experience.company}
+            profTitle={experience.title}
+            profDescription={experience.description}
+            profId={experience.id}
+          />
+        ))}
       </div>
     </>
   );

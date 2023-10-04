@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ExperienceTab from "./ExperienceTab";
+import RemoveSpaces from "./RemoveSpaces";
 
 function ExperienceInputs({
   experienceData,
@@ -14,7 +15,6 @@ function ExperienceInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [id, setId] = useState("");
   const [countNo, setCountNo] = useState(2);
 
   const resetInputValues = () => {
@@ -40,12 +40,7 @@ function ExperienceInputs({
 
   const counter = () => {
     setCountNo(countNo + 1);
-    console.log(countNo);
   };
-
-  useEffect(() => {
-    console.log(id);
-  }, [id]); // This effect will run whenever the id changes
 
   return (
     <>
@@ -64,11 +59,10 @@ function ExperienceInputs({
             value={company}
             onChange={(e) => {
               setCompany(e.target.value);
-              setId(e.target.value + countNo);
               setExperienceData({
                 ...experienceData,
                 company: e.target.value,
-                id: e.target.value + countNo,
+                id: RemoveSpaces(e.target.value) + countNo,
               });
             }}
           />

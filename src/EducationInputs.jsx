@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import EducationTab from "./EducationTab";
 
@@ -15,7 +15,6 @@ function EducationInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [id, setId] = useState("");
   const [countNo, setCountNo] = useState(1);
 
   const resetInputValues = () => {
@@ -42,10 +41,6 @@ function EducationInputs({
     console.log(countNo);
   };
 
-  useEffect(() => {
-    console.log(id);
-  }, [id]); // This effect will run whenever the id changes
-
   return (
     <>
       {educationEntries.map((entry, index) => (
@@ -63,7 +58,6 @@ function EducationInputs({
             value={school}
             onChange={(e) => {
               setSchool(e.target.value);
-              setId(e.target.value + countNo);
               setEducationData({
                 ...educationData,
                 school: e.target.value,

@@ -1,12 +1,18 @@
+/* eslint-disable react/prop-types */
+import RemoveSpaces from "./RemoveSpaces";
+
 function EducationInfo({
   eduDate,
   eduLocation,
   eduSchool,
   eduDegree,
   eduDescription,
+  eduId,
 }) {
+  const eduDetailsClass = "profDetails " + RemoveSpaces(eduId);
+
   return (
-    <div className="eduDetails">
+    <div className={eduDetailsClass}>
       <div className="eduLeft">
         <div className="eduDate">{eduDate}</div>
         <div className="eduLocation">{eduLocation}</div>

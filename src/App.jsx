@@ -47,7 +47,7 @@ function App() {
     location: "Springfield, USA",
     description:
       "Developed a unique approach to safety involving a bunch of signs and elaborate escape plans.",
-    id: "Springfield University0",
+    id: "SpringfieldUniversity0",
   };
 
   // State variables to manage profile, experience, and education data
@@ -73,7 +73,6 @@ function App() {
   const saveEducation = (educationData) => {
     setEducationEntries((prevEntries) => {
       const newEntries = [...prevEntries, educationData];
-      console.log("New education entry added:", educationData);
       return newEntries;
     });
   };
@@ -81,10 +80,17 @@ function App() {
   const saveExperience = (experienceData) => {
     setExperienceEntries((prevEntries) => {
       const newEntries = [...prevEntries, experienceData];
-      console.log("New experience entry added:", newEntries);
       return newEntries;
     });
   };
+
+  useEffect(() => {
+    console.log("Updated experience entries:", experienceEntries);
+  }, [experienceEntries]);
+
+  useEffect(() => {
+    console.log("Updated education entries:", educationEntries);
+  }, [educationEntries]);
 
   // JSX structure for the App component
   return (
@@ -156,7 +162,11 @@ function App() {
         </div>
         {/* CV side containing the layout */}
         <div className="cvSide">
-          <CVLayout profileData={profileData} />
+          <CVLayout
+            profileData={profileData}
+            educationEntries={educationEntries}
+            experienceEntries={experienceEntries}
+          />{" "}
         </div>
       </div>
     </>
