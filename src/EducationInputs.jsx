@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-
+import RemoveSpaces from "./RemoveSpaces";
 import EducationTab from "./EducationTab";
 
 function EducationInputs({
@@ -15,7 +15,6 @@ function EducationInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [countNo, setCountNo] = useState(1);
 
   const resetInputValues = () => {
     setSchool("");
@@ -31,21 +30,22 @@ function EducationInputs({
       alert("Please fill in all education fields.");
       return;
     }
-    counter();
     saveEducation(educationData);
     resetInputValues();
   };
 
-  const counter = () => {
-    setCountNo(countNo + 1);
-    console.log(countNo);
-  };
-
   return (
     <>
-      {educationEntries.map((entry, index) => (
-        <EducationTab key={index} schoolName={entry.school} />
-      ))}
+      {educationEntries.map((entry, index) => {
+        const generatedId = `${RemoveSpaces(entry.school)}${index}`;
+        return (
+          <EducationTab
+            key={index}
+            schoolName={entry.school}
+            id={generatedId}
+          />
+        );
+      })}
       <div className="card educationCard">
         <div className="inputPair inputSchool">
           <label className="inputFor" htmlFor="school">
@@ -61,7 +61,7 @@ function EducationInputs({
               setEducationData({
                 ...educationData,
                 school: e.target.value,
-                id: e.target.value + countNo,
+                id: `${RemoveSpaces(e.target.value)}${educationEntries.length}`,
               });
             }}
           />

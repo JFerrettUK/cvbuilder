@@ -44,9 +44,16 @@ function ExperienceInputs({
 
   return (
     <>
-      {experienceEntries.map((entry, index) => (
-        <ExperienceTab key={index} companyName={entry.company} />
-      ))}
+      {experienceEntries.map((entry, index) => {
+        const generatedId = `${RemoveSpaces(entry.company)}${index}`;
+        return (
+          <ExperienceTab
+            key={index}
+            companyName={entry.company}
+            id={generatedId}
+          />
+        );
+      })}
       <div className="card experienceCard">
         <div className="inputPair inputCompanyName">
           <label className="inputFor" htmlFor="companyName">
