@@ -25,7 +25,7 @@ function App() {
     location: "Springfield, USA",
     description:
       "I worked at the Springfield Nuclear Power Plant, where I, um, made sure stuff didn't go kablooey. You know, nuclear doodads and all that jazz. And, I tried to keep things from blowing up and stuff.",
-    id: "Springfield Nuclear Power Plant0",
+    id: "SpringfieldNuclearPowerPlant0",
   };
 
   const defaultExperienceData2 = {
@@ -136,6 +136,7 @@ function App() {
                 setEducationData={setEducationData}
                 saveEducation={saveEducation}
                 educationEntries={educationEntries}
+                setEducationEntries={setEducationEntries}
               />
             </div>
           </div>

@@ -229,7 +229,7 @@ input::-webkit-inner-spin-button {
 .educationTab {
   font-weight: 800;
   display: grid;
-  grid-template-columns: 1fr 25px;
+  grid-template-columns: 1fr 25px 25px;
   align-items: center;
   color: white;
   padding: 0.5em;

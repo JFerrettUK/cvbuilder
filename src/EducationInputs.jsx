@@ -8,6 +8,7 @@ function EducationInputs({
   setEducationData,
   saveEducation,
   educationEntries,
+  setEducationEntries,
 }) {
   const [school, setSchool] = useState("");
   const [degree, setDegree] = useState("");
@@ -43,6 +44,8 @@ function EducationInputs({
             key={index}
             schoolName={entry.school}
             id={generatedId}
+            educationEntries={educationEntries}
+            setEducationEntries={setEducationEntries}
           />
         );
       })}

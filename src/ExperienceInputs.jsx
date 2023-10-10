@@ -69,7 +69,9 @@ function ExperienceInputs({
               setExperienceData({
                 ...experienceData,
                 company: e.target.value,
-                id: RemoveSpaces(e.target.value) + countNo,
+                id: `${RemoveSpaces(e.target.value)}${
+                  experienceEntries.length
+                }`,
               });
             }}
           />
