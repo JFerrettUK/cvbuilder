@@ -9,15 +9,34 @@ function EducationTab({
   id,
   educationEntries,
   setEducationEntries,
+  setEducationData,
+  educationData,
+  setSchool,
+  setDegree,
+  setStart,
+  setEnd,
+  setLocation,
+  setDescription,
 }) {
   const handleDeleteClick = () => {
-    console.log("Delete button clicked");
     DeleteTab(id);
   };
 
   const handleEditClick = () => {
     console.log("Edit button clicked");
-    EditEduTab(id, educationEntries, setEducationEntries);
+    EditEduTab(
+      id,
+      educationEntries,
+      setEducationEntries,
+      setEducationData,
+      educationData,
+      setSchool,
+      setDegree,
+      setStart,
+      setEnd,
+      setLocation,
+      setDescription
+    );
   };
 
   return (

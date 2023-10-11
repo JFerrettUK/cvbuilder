@@ -5,7 +5,6 @@ import edit from "/edit.svg";
 
 function ExperienceTab({ companyName, id }) {
   const handleDeleteClick = () => {
-    console.log("Delete button clicked");
     DeleteTab(id);
   };
 

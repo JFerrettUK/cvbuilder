@@ -27,10 +27,13 @@ function EducationInputs({
   };
 
   const validateAndSave = () => {
+    const { school, degree, start, end, location, description } = educationData;
+
     if (!school || !degree || !start || !end || !location || !description) {
       alert("Please fill in all education fields.");
       return;
     }
+
     saveEducation(educationData);
     resetInputValues();
   };
@@ -46,6 +49,14 @@ function EducationInputs({
             id={generatedId}
             educationEntries={educationEntries}
             setEducationEntries={setEducationEntries}
+            setEducationData={setEducationData}
+            educationData={educationData}
+            setSchool={setSchool}
+            setDegree={setDegree}
+            setStart={setStart}
+            setEnd={setEnd}
+            setLocation={setLocation}
+            setDescription={setDescription}
           />
         );
       })}

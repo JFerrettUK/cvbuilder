@@ -4,17 +4,8 @@ import call from "/call.svg";
 import mail from "/mail.svg";
 import EducationInfo from "./EducationInfo";
 import ExperienceInfo from "./ExperienceInfo";
-import { useEffect } from "react";
 
 function CVLayout({ profileData, educationEntries, experienceEntries }) {
-  useEffect(() => {
-    console.log("CV Layout Updated experience entries:", experienceEntries);
-  }, [experienceEntries]);
-
-  useEffect(() => {
-    console.log("CV Layout Updated education entries:", educationEntries);
-  }, [educationEntries]);
-
   return (
     <>
       <div className="cvBox">

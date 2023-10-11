@@ -1,23 +1,37 @@
-//break it down into steps:
-function editEduTab(id, educationEntries, setEducationEntries) {
-  //user presses press the edit button
-  //get the relevant class 'id' from the tab that was clicked
-  console.log(id);
-  console.log(educationEntries);
-  console.log(setEducationEntries);
+import DeleteTab from "./DeleteTab.jsx";
 
-  //filter the arrays from App.jsx (EducationData) to find an entry with the same id
-  //the data from that id appears in each of the following fields:
-  //school
-  //degree
-  //start
-  //end
-  //location
-  //description
-  //then, the save button now changes to say "edit".
-  //Instead of saving a new entry, it saves over the data found from EducationData,
-  //enduring the ID isn't changed and its placement in the array is the same
-  //the save button returns to its functionality from the start
+function editEduTab(
+  id,
+  educationEntries,
+  setEducationEntries,
+  setEducationData,
+  educationData,
+  setSchool,
+  setDegree,
+  setStart,
+  setEnd,
+  setLocation,
+  setDescription
+) {
+  const findObjectById = (id) => {
+    return educationEntries.filter((item) => item.id === id)[0];
+  };
+
+  const result = findObjectById(id);
+
+  // Set values to the form fields
+  setSchool(result.school);
+  setDegree(result.degree);
+  setStart(result.start);
+  setEnd(result.end);
+  setLocation(result.location);
+  setDescription(result.description);
+
+  // Delete the old tab after setting values
+  // Use setTimeout to ensure that state updates have completed
+  setTimeout(() => {
+    DeleteTab(id);
+  }, 0);
 }
 
 export default editEduTab;
