@@ -27,8 +27,6 @@ function EducationInputs({
   };
 
   const validateAndSave = () => {
-    const { school, degree, start, end, location, description } = educationData;
-
     if (!school || !degree || !start || !end || !location || !description) {
       alert("Please fill in all education fields.");
       return;

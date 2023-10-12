@@ -1,28 +1,24 @@
 import DeleteTab from "./DeleteTab.jsx";
 
-function editEduTab(
+function editExpTab(
   id,
-  educationEntries,
-  setEducationEntries,
-  setEducationData,
-  educationData,
-  setSchool,
-  setDegree,
+  experienceEntries,
+  setCompany,
+  setTitle,
   setStart,
   setEnd,
   setLocation,
   setDescription
 ) {
   const findObjectById = (id) => {
-    console.log("id in EditEduTab", id);
-    return educationEntries.filter((item) => item.id === id)[0];
+    return experienceEntries.filter((item) => item.id === id)[0];
   };
 
   const result = findObjectById(id);
 
   // Set values to the form fields
-  setSchool(result.school);
-  setDegree(result.degree);
+  setCompany(result.company);
+  setTitle(result.title);
   setStart(result.start);
   setEnd(result.end);
   setLocation(result.location);
@@ -35,4 +31,4 @@ function editEduTab(
   }, 0);
 }
 
-export default editEduTab;
+export default editExpTab;

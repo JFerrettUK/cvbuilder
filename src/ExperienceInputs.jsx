@@ -15,7 +15,6 @@ function ExperienceInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [countNo, setCountNo] = useState(2);
 
   const resetInputValues = () => {
     setCompany("");
@@ -33,13 +32,8 @@ function ExperienceInputs({
       return;
     }
 
-    counter();
     saveExperience(experienceData);
     resetInputValues();
-  };
-
-  const counter = () => {
-    setCountNo(countNo + 1);
   };
 
   return (
@@ -51,6 +45,13 @@ function ExperienceInputs({
             key={index}
             companyName={entry.company}
             id={generatedId}
+            experienceEntries={experienceEntries}
+            setCompany={setCompany}
+            setTitle={setTitle}
+            setStart={setStart}
+            setEnd={setEnd}
+            setLocation={setLocation}
+            setDescription={setDescription}
           />
         );
       })}

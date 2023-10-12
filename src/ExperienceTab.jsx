@@ -2,14 +2,35 @@
 import trash from "/trash.svg";
 import DeleteTab from "./DeleteTab.jsx";
 import edit from "/edit.svg";
+import EditExpTab from "./EditExpTab.jsx";
 
-function ExperienceTab({ companyName, id }) {
+function ExperienceTab({
+  companyName,
+  id,
+  experienceEntries,
+  setCompany,
+  setTitle,
+  setStart,
+  setEnd,
+  setLocation,
+  setDescription,
+}) {
   const handleDeleteClick = () => {
     DeleteTab(id);
   };
 
   const handleEditClick = () => {
     console.log("Edit button clicked");
+    EditExpTab(
+      id,
+      experienceEntries,
+      setCompany,
+      setTitle,
+      setStart,
+      setEnd,
+      setLocation,
+      setDescription
+    );
   };
 
   return (

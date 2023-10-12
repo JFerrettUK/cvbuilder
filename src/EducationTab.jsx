@@ -22,6 +22,8 @@ function EducationTab({
     DeleteTab(id);
   };
 
+  console.log("EducationTab id ", id);
+
   const handleEditClick = () => {
     console.log("Edit button clicked");
     EditEduTab(
