@@ -20,7 +20,6 @@ function ExperienceTab({
   };
 
   const handleEditClick = () => {
-    console.log("Edit button clicked");
     EditExpTab(
       id,
       experienceEntries,

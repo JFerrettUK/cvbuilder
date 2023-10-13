@@ -20,7 +20,6 @@ function editEduTab(
 
   const result = findObjectById(id);
 
-  // Set values to the form fields
   setSchool(result.school);
   setDegree(result.degree);
   setStart(result.start);
@@ -28,8 +27,6 @@ function editEduTab(
   setLocation(result.location);
   setDescription(result.description);
 
-  // Delete the old tab after setting values
-  // Use setTimeout to ensure that state updates have completed
   setTimeout(() => {
     DeleteTab(id);
   }, 0);

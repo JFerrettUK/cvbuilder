@@ -16,6 +16,7 @@ function EducationInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [generatedId, setGeneratedId] = useState("");
 
   const resetInputValues = () => {
     setSchool("");
