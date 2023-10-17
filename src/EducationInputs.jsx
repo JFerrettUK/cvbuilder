@@ -16,7 +16,6 @@ function EducationInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [generatedId, setGeneratedId] = useState("");
 
   const resetInputValues = () => {
     setSchool("");
@@ -40,12 +39,11 @@ function EducationInputs({
   return (
     <>
       {educationEntries.map((entry, index) => {
-        const generatedId = `${RemoveSpaces(entry.school)}${index}`;
         return (
           <EducationTab
             key={index}
             schoolName={entry.school}
-            id={generatedId}
+            id={`${RemoveSpaces(entry.school)}${index}`}
             educationEntries={educationEntries}
             setEducationEntries={setEducationEntries}
             setEducationData={setEducationData}
