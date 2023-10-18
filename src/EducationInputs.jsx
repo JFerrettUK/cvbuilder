@@ -16,6 +16,7 @@ function EducationInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [count, setCount] = useState(1); // Add count state
 
   const resetInputValues = () => {
     setSchool("");
@@ -31,9 +32,9 @@ function EducationInputs({
       alert("Please fill in all education fields.");
       return;
     }
-
     saveEducation(educationData);
     resetInputValues();
+    setCount((prevCount) => prevCount + 1);
   };
 
   return (
@@ -54,6 +55,8 @@ function EducationInputs({
             setEnd={setEnd}
             setLocation={setLocation}
             setDescription={setDescription}
+            setCount={setCount}
+            count={count}
           />
         );
       })}
@@ -72,8 +75,10 @@ function EducationInputs({
               setEducationData({
                 ...educationData,
                 school: e.target.value,
-                id: `${RemoveSpaces(e.target.value)}${educationEntries.length}`,
+                id: `${RemoveSpaces(e.target.value)}${count}`,
               });
+
+              console.log(`id: ${RemoveSpaces(e.target.value)}${count}`);
             }}
           />
         </div>

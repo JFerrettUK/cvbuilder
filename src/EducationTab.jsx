@@ -17,6 +17,8 @@ function EducationTab({
   setEnd,
   setLocation,
   setDescription,
+  setCount,
+  count,
 }) {
   const handleDeleteClick = () => {
     DeleteTab(id);
@@ -35,7 +37,9 @@ function EducationTab({
       setStart,
       setEnd,
       setLocation,
-      setDescription
+      setDescription,
+      setCount,
+      count
     );
   };
 

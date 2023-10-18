@@ -11,7 +11,9 @@ function editEduTab(
   setStart,
   setEnd,
   setLocation,
-  setDescription
+  setDescription,
+  setCount,
+  count
 ) {
   const findObjectById = (id) => {
     console.log("id in EditEduTab", id);
@@ -26,7 +28,6 @@ function editEduTab(
   setEnd(result.end);
   setLocation(result.location);
   setDescription(result.description);
-
   setTimeout(() => {
     DeleteTab(id);
   }, 0);
