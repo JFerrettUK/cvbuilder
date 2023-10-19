@@ -157,6 +157,7 @@ function App() {
                 setExperienceData={setExperienceData}
                 saveExperience={saveExperience}
                 experienceEntries={experienceEntries}
+                setExperienceEntries={setExperienceEntries}
               />
             </div>
           </div>

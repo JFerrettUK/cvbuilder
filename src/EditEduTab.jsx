@@ -1,6 +1,7 @@
 import DeleteTab from "./DeleteTab.jsx";
+import RemoveSpaces from "./RemoveSpaces.jsx";
 
-function editEduTab(
+async function editEduTab(
   id,
   educationEntries,
   setEducationEntries,
@@ -28,9 +29,29 @@ function editEduTab(
   setEnd(result.end);
   setLocation(result.location);
   setDescription(result.description);
-  setTimeout(() => {
-    DeleteTab(id);
-  }, 0);
+
+  await DeleteTab(id); // Wait for deletion to complete
+
+  // Set a new ID for the updated entry
+  const newEntryId = `${RemoveSpaces(result.school)}${count}`;
+  setEducationData({
+    ...educationData,
+    school: result.school,
+    degree: result.degree,
+    start: result.start,
+    end: result.end,
+    location: result.location,
+    description: result.description,
+    id: newEntryId,
+  });
+
+  // Update the education entries with the edited data
+  setEducationEntries((prevEntries) => {
+    const updatedEntries = prevEntries.map((entry) =>
+      entry.id === id ? { ...entry, ...educationData } : entry
+    );
+    return updatedEntries;
+  });
 }
 
 export default editEduTab;

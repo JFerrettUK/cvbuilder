@@ -8,12 +8,18 @@ function ExperienceTab({
   companyName,
   id,
   experienceEntries,
+  setExperienceEntries,
+  experienceData,
+
+  setExperienceData,
   setCompany,
   setTitle,
   setStart,
   setEnd,
   setLocation,
   setDescription,
+  setCount,
+  count,
 }) {
   const handleDeleteClick = () => {
     DeleteTab(id);
@@ -23,12 +29,17 @@ function ExperienceTab({
     EditExpTab(
       id,
       experienceEntries,
+      setExperienceEntries,
+      experienceData,
+      setExperienceData,
       setCompany,
       setTitle,
       setStart,
       setEnd,
       setLocation,
-      setDescription
+      setDescription,
+      setCount,
+      count
     );
   };
 

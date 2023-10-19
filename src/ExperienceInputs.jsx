@@ -8,6 +8,7 @@ function ExperienceInputs({
   setExperienceData,
   saveExperience,
   experienceEntries,
+  setExperienceEntries,
 }) {
   const [company, setCompany] = useState("");
   const [title, setTitle] = useState("");
@@ -15,6 +16,7 @@ function ExperienceInputs({
   const [end, setEnd] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [count, setCount] = useState(2); // Add count state
 
   const resetInputValues = () => {
     setCompany("");
@@ -26,7 +28,6 @@ function ExperienceInputs({
   };
 
   const validateAndSave = () => {
-    // Check if any field is empty
     if (!company || !title || !start || !end || !location || !description) {
       alert("Please fill in all experience fields.");
       return;
@@ -34,24 +35,29 @@ function ExperienceInputs({
 
     saveExperience(experienceData);
     resetInputValues();
+    setCount((prevCount) => prevCount + 1);
   };
 
   return (
     <>
       {experienceEntries.map((entry, index) => {
-        const generatedId = `${RemoveSpaces(entry.company)}${index}`;
         return (
           <ExperienceTab
             key={index}
             companyName={entry.company}
-            id={generatedId}
+            id={`${RemoveSpaces(entry.company)}${index}`}
             experienceEntries={experienceEntries}
+            setExperienceEntries={setExperienceEntries}
+            experienceData={experienceData}
+            setExperienceData={setExperienceData}
             setCompany={setCompany}
             setTitle={setTitle}
             setStart={setStart}
             setEnd={setEnd}
             setLocation={setLocation}
             setDescription={setDescription}
+            setCount={setCount}
+            count={count}
           />
         );
       })}
