@@ -84,14 +84,6 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    console.log("Updated experience entries:", experienceEntries);
-  }, [experienceEntries]);
-
-  useEffect(() => {
-    console.log("Updated education entries:", educationEntries);
-  }, [educationEntries]);
-
   // JSX structure for the App component
   return (
     <>

@@ -77,8 +77,6 @@ function EducationInputs({
                 school: e.target.value,
                 id: `${RemoveSpaces(e.target.value)}${count}`,
               });
-
-              console.log(`id: ${RemoveSpaces(e.target.value)}${count}`);
             }}
           />
         </div>

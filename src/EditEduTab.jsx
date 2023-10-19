@@ -17,7 +17,6 @@ async function editEduTab(
   count
 ) {
   const findObjectById = (id) => {
-    console.log("id in EditEduTab", id);
     return educationEntries.filter((item) => item.id === id)[0];
   };
 
